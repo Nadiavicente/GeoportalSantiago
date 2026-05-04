@@ -140,88 +140,106 @@ header{
 /* ===== RESPONSIVE MÓVIL ===== */
 @media (max-width: 768px) {
 
-  /* Desactivar overflow:hidden en body para poder scrollear */
-  html, body { overflow: auto !important; height: auto !important; }
-
-  /* Header: compacto y flexible */
-  header {
-    flex-wrap: wrap;
+  /* Permitir scroll vertical */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
     height: auto !important;
-    min-height: 54px;
+  }
+
+  /* Header: flexible en 2 filas */
+  header {
+    flex-wrap: wrap !important;
+    height: auto !important;
+    min-height: 54px !important;
     padding: 6px 10px !important;
-    gap: 6px;
+    gap: 4px;
   }
-  .h-left, .h-right { flex: 0 0 auto; }
-  .h-center { flex: 1 1 100%; order: 3; padding: 4px 0; }
-  .h-title { font-size: 0.78rem; }
-  .h-sub { font-size: 0.55rem; }
-  .h-logo-icon { font-size: 20px; }
-  .btn-inicio { font-size: 0.7rem; padding: 5px 10px; }
+  .h-left  { order: 1; flex: 0 0 auto; }
+  .h-right { order: 2; flex: 0 0 auto; margin-left: auto; }
+  .h-center {
+    order: 3;
+    flex: 1 1 100%;
+    padding: 3px 0;
+  }
+  .h-title { font-size: 0.8rem !important; }
+  .h-sub   { font-size: 0.58rem !important; }
+  .h-logo-icon { font-size: 20px !important; }
 
-  /* Layout principal: columna en vez de fila */
-  .main-layout, body > .d-flex, .content-wrap, .flex-row {
+  /* Layout principal: columna */
+  .main-layout {
     flex-direction: column !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin-top: 80px !important;
   }
 
-  /* Sidebar: ancho completo, scroll vertical limitado */
+  /* Sidebar: ancho completo */
   .sidebar {
     width: 100% !important;
-    max-height: 45vh;
-    border-right: none !important;
-    border-bottom: 1px solid var(--border);
-    overflow-y: auto;
-  }
-
-  /* Área central: ocupa el ancho completo */
-  .center { width: 100% !important; overflow: visible !important; }
-
-  /* Área de gráficos: grid de 1 columna */
-  .charts-area {
-    flex-direction: column !important;
-    overflow: visible !important;
-    height: auto !important;
-  }
-  .charts-grid {
-    grid-template-columns: 1fr !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-  .cpanel {
-    height: 280px !important;
+    max-height: 40vh !important;
+    overflow-y: auto !important;
     border-right: none !important;
     border-bottom: 1px solid var(--border) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Área central */
+  .center {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    flex: none !important;
+  }
+
+  /* Área de gráficos */
+  .charts-area {
+    flex-direction: column !important;
+    height: auto !important;
     overflow: visible !important;
   }
-  .cpanel:last-child { border-bottom: none !important; }
 
-  /* Overlay de gráfico: pantalla completa en móvil */
+  /* Grid de gráficos: 1 columna */
+  .charts-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Cada panel de gráfico */
+  .cpanel {
+    width: 100% !important;
+    height: 260px !important;
+    min-height: 260px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Mapa del dashboard */
+  .map-container, #map-dashboard, .leaflet-container {
+    height: 280px !important;
+    min-height: 280px !important;
+  }
+
+  /* Tabs España/Santiago/Galicia: visibles */
+  .view-btns, .map-view-btns {
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    padding: 4px 8px !important;
+  }
+  .vbtn {
+    font-size: 0.65rem !important;
+    padding: 4px 8px !important;
+  }
+
+  /* Overlay de gráfico ampliado */
   #chartOverlay {
     width: calc(100vw - 20px) !important;
     max-width: none !important;
     left: 10px !important;
     right: 10px !important;
   }
-
-  /* Mapa leaflet del dashboard */
-  #map, .map-container, .leaflet-container {
-    height: 300px !important;
-    min-height: 300px !important;
-  }
-
-  /* Tabs de España / Santiago / Galicia */
-  .tab-buttons, .map-tabs, .view-switcher {
-    flex-wrap: wrap !important;
-    gap: 4px !important;
-  }
-  .tab-btn, .map-tab {
-    font-size: 0.68rem !important;
-    padding: 4px 10px !important;
-  }
-
-  /* Stats/info cards */
-  .stats-row, .kpi-row {
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-  .kpi-card, .stat-card { min-width: 120px !important; }
 }
