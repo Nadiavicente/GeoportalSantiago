@@ -34,8 +34,8 @@ const map = L.map('map',{zoomControl:false});
 L.control.zoom({position:'topleft'}).addTo(map);
 map.setView([0,0],3);
 const BMS={
-  light:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{attribution:'© Esri',maxNativeZoom:16,maxZoom:20}),
-  osm:  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{attribution:'© Esri © OpenStreetMap',maxNativeZoom:19,maxZoom:20}),
+  light:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{attribution:'© Esri © OpenStreetMap',maxNativeZoom:19,maxZoom:20}),
+  osm:  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{attribution:'© Esri © OpenStreetMap',maxNativeZoom:19,maxZoom:20}),
   dark: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{attribution:'© Esri',maxNativeZoom:16,maxZoom:20}),
   sat:  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'© Esri',maxNativeZoom:18,maxZoom:20}),
 };
