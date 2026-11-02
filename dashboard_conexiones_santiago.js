@@ -1,7 +1,7 @@
 // ── MAP ──────────────────────────────────────────────────────────
 const map=L.map('map',{center:[38.5,-4.0],zoom:5,preferCanvas:true});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
-  attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{
+  attribution:'© Esri © OpenStreetMap',subdomains:'abcd',maxZoom:19}).addTo(map);
 
 function mkIcon(bg,border,emo,sz=28){
   return L.divIcon({className:'',
